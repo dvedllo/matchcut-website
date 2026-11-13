@@ -198,7 +198,7 @@ a.sbtn:hover{background:var(--accent-graphic);border-color:var(--accent-graphic)
 .edition.is-current .label{color:var(--peach)}
 @media (max-width:640px){.edition{grid-template-columns:minmax(0,1fr)}}
 .mailnote{margin:4px 0 0;color:var(--muted)}
-.mailnote strong{color:var(--white);font-weight:600;user-select:all}
+.mailnote a.mail{color:var(--white);font-weight:600;text-decoration-color:var(--peach);text-underline-offset:4px}
 
 /* ---------- Quellen ---------- */
 .src-head{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:24px 64px;align-items:end}
@@ -245,7 +245,7 @@ details[open] .e-count i::after{transform:rotate(0)}
   .e-sources li{grid-template-columns:minmax(0,1fr)}
 }
 .src-empty,.src-fix{margin:16px 0 0;color:var(--muted)}
-.src-fix strong{color:var(--forest);font-weight:600;user-select:all}
+.src-fix a.mail{color:var(--jungle-deep);font-weight:600;text-underline-offset:4px}
 
 /* ---------- Fuß ---------- */
 .foot-in{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px 48px;padding-block:56px 40px;align-items:start}
@@ -417,11 +417,11 @@ details[open] .e-count i::after{transform:rotate(0)}
     <article class="legal-sheet" id="legal-impressum" hidden>
       <h1 data-i18n="imp_h">Impressum</h1>
       <p class="lang-hint" data-i18n="legal_hint" hidden></p>
-      <div class="todo-box"><strong>Platzhalter</strong>Die markierten Felder vor dem Livegang ausfüllen. Pflicht ist eine ladungsfähige Anschrift, ein Postfach reicht nicht.</div>
+      <div class="todo-box"><strong>Platzhalter</strong>Name und ladungsfähige Anschrift fehlen noch. Beides ist Pflicht, ein Postfach reicht nicht. Eine c/o-Anschrift mit Zustellungsvollmacht ist möglich.</div>
       <h2>Angaben gemäß § 5 DDG</h2>
       <p><span class="todo">[Vorname Nachname]</span><br><span class="todo">[Straße Hausnummer]</span><br><span class="todo">[PLZ Ort]</span><br>Deutschland</p>
       <h2>Kontakt</h2>
-      <p>E-Mail: <span class="todo">[E-Mail-Adresse]</span></p>
+      <p>E-Mail: <a href="mailto:hi@matchcutfc.com">hi@matchcutfc.com</a></p>
       <h2>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>
       <p><span class="todo">[Vorname Nachname]</span>, Anschrift wie oben</p>
       <h2>Haftung für Links</h2>
@@ -431,7 +431,7 @@ details[open] .e-count i::after{transform:rotate(0)}
     <article class="legal-sheet" id="legal-datenschutz" hidden>
       <h1 data-i18n="ds_h">Datenschutz</h1>
       <p class="lang-hint" data-i18n="legal_hint" hidden></p>
-      <div class="todo-box"><strong>Platzhalter</strong>Den vollständigen Text vor dem Livegang mit einem Datenschutz-Generator erstellen und hier einfügen. Für diese Seite relevant: Hosting bei <span class="todo">[Hosting-Anbieter]</span>, keine Cookies, kein Tracking, keine eingebetteten Inhalte, Schriften lokal eingebunden, Links zu TikTok, Instagram und YouTube, Kontakt per E-Mail.</div>
+      <div class="todo-box"><strong>Platzhalter</strong>Den vollständigen Text vor dem Livegang mit einem Datenschutz-Generator erstellen und hier einfügen. Für diese Seite relevant: Hosting bei <span class="todo">[Hosting-Anbieter]</span>, keine Cookies, kein Tracking, keine eingebetteten Inhalte, Schriften lokal eingebunden, Links zu TikTok, Instagram und YouTube, Kontakt per E-Mail an hi@matchcutfc.com.</div>
       <h2>Verantwortlich</h2>
       <p>Verantwortlich für die Datenverarbeitung auf dieser Website ist die im <a href="#impressum">Impressum</a> genannte Person.</p>
       <h2>Was diese Website nicht tut</h2>
@@ -540,7 +540,7 @@ details[open] .e-count i::after{transform:rotate(0)}
         youtube: "https://www.youtube.com/@matchcutfc.en"
       }
     },
-    email: ""
+    email: "hi@matchcutfc.com"
   };
   /* ===================================================================== */
 
@@ -649,6 +649,7 @@ details[open] .e-count i::after{transform:rotate(0)}
   function txt(v) { if (v == null) return ""; if (typeof v === "string") return v; return v[lang] || v.de || v.en || ""; }
   function norm(s) { return String(s || "").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, ""); }
   function el(tag, cls, text) { var n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; }
+  function mailLink(m) { var a = el("a", "mail", m); a.href = "mailto:" + m; return a; }
   function host(u) { try { return new URL(u).hostname.replace(/^www\./, ""); } catch (e) { return ""; } }
   function pad(n) { n = parseInt(n, 10); return isNaN(n) ? "" : ("00" + n).slice(-3); }
   function fmtDate(iso) {
@@ -745,7 +746,7 @@ details[open] .e-count i::after{transform:rotate(0)}
     if (!n) return;
     n.hidden = !mail;
     n.textContent = "";
-    if (mail) { n.appendChild(document.createTextNode(t("mail_a"))); n.appendChild(el("strong", null, mail)); }
+    if (mail) { n.appendChild(document.createTextNode(t("mail_a"))); n.appendChild(mailLink(mail)); }
   }
 
   /* ---------- Quellen ---------- */
@@ -822,7 +823,7 @@ details[open] .e-count i::after{transform:rotate(0)}
     fix.hidden = !mail; fix.textContent = "";
     if (mail) {
       fix.appendChild(document.createTextNode(t("src_fix_a")));
-      fix.appendChild(el("strong", null, mail));
+      fix.appendChild(mailLink(mail));
       fix.appendChild(document.createTextNode(t("src_fix_b")));
     }
   }
