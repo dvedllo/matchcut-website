@@ -2,10 +2,11 @@
 
 Website von Matchcut nach CI und Markenkonzept. Claim: „Fußball ist nie nur Fußball.“ / „Football is never just football.“ Alles steckt in `index.html`: Schriften, Styles und Skript sind eingebettet, es werden keine externen Inhalte geladen.
 
-## Vor dem Livegang ausfüllen
+## Noch offen
 
-- **Impressum** (`#impressum`) und **Datenschutz** (`#datenschutz`): die Peach-markierten Platzhalter in `index.html`
-- **Kontaktadresse (optional):** `email` im Block `CONFIG` am Ende von `index.html`
+- **Impressum** (`#impressum`): Name und ladungsfähige Anschrift fehlen noch. Die Vorlage steht als Kommentar im Impressum in `index.html`. Beides ist Pflicht und wird nachgetragen.
+- **Datenschutz** (`#datenschutz`): sachliche Grundfassung (Hosting bei GitHub, E-Mail, Links, Rechte). Mit einem Generator prüfen und ergänzen, sobald Name und Anschrift feststehen.
+- **Kontaktadresse:** `hi@matchcutfc.com`, steht in `CONFIG.email` und im Impressum.
 
 ## Social-Links
 
