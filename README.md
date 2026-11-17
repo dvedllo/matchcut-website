@@ -10,7 +10,7 @@ Website von Matchcut nach CI und Markenkonzept. Claim: „Fußball ist nie nur F
 
 ## Social-Links
 
-Im Block `CONFIG` unter `editions`: Deutsche Ausgabe (TikTok und Instagram @matchcutfc.de, YouTube @matchcutfc_de) und English Edition (Instagram @matchcutfc, TikTok @matchcutfc.en, YouTube @matchcutfc_en). YouTube erlaubt keine Punkte im Handle, @matchcutfc auf TikTok gehört einem fremden Profil. Kopf und Fuß zeigen die Ausgabe der aktuellen Sprache, der Community-Bereich zeigt beide.
+Im Block `CONFIG` unter `editions`: Deutsche Ausgabe (TikTok und Instagram @matchcutfc.de, YouTube @matchcutfc_de) und English Edition (Instagram @matchcutfc, TikTok @matchcut5, YouTube @matchcutfc_en). Der englische TikTok-Handle wird später auf @matchcutfc.en geändert, dann hier und in `CONFIG` anpassen. YouTube erlaubt keine Punkte im Handle, @matchcutfc auf TikTok gehört einem fremden Profil. Kopf und Fuß zeigen die Ausgabe der aktuellen Sprache, der Community-Bereich zeigt beide.
 
 ## Sprache
 
